@@ -7,6 +7,18 @@ var app = new Vue({
   	getTypes: function (argument) {
   		var a = Mercadopago.getIdentificationTypes()
   		alert(a)
+  	},
+  	sendCardToken: function(body){
+  		fetch('http://localhost:8080/token', {
+  			method:'POST', 
+  			body: JSON.stringify(body),
+  			headers: {
+			    'Accept': 'application/json, text/plain, */*',
+			    'Content-Type': 'application/json'
+			},
+  		}).then(function(response){
+  			console.log(response)
+  		})
   	}
   }
 })
@@ -93,7 +105,7 @@ function sdkResponseHandler(status, response) {
         console.log(response)
     }else{
     	console.log(response)
-        alert(response.id)
+        app.sendCardToken(response)
         var form = document.querySelector('#pay');
 
         var card = document.createElement('input');
