@@ -1,5 +1,6 @@
 const serveStatic = require('serve-static')
 const bodyParser = require('body-parser')
+const env = require('dotenv').config()
 
 
 module.exports = {
