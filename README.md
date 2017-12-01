@@ -1,22 +1,14 @@
-# vue-clie
+# Third party integrations
 
-> Nuxt.js + Vuetify.js project
+```  
+   npm install
+   npm run dev
+``` 
 
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm install # Or yarn install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
+Put MERCADOPAGO_SECRET credentials on .env file and then:
+```
+   # Avoids track changes of .env file
+   git update-index --assume-unchanged .env
 ```
 
-For detailed explanation on how things work, check out the [Nuxt.js](https://github.com/nuxt/nuxt.js) and [Vuetify.js](https://vuetifyjs.com/) documentation.
+http://localhost:3000/checkout?token=111111111 
