@@ -1,13 +1,11 @@
 <template>
 
     <v-container fluid>
-    
-    <div style="background-color:red; height:50%; width:100%">
-      <h3>ClaroVideo</h3>
-    </div>
 
     <v-layout row justify-center>
       <v-card style="width:50%; margin-top:-10px"> 
+        <v-card-media src="https://www.neostuff.net/wp-content/uploads/2015/12/claro-video.png" height="400px">
+        </v-card-media>
 
         <v-container row justify-center>
 
@@ -19,9 +17,7 @@
 
           <v-layout row wrap align-center>
           <v-flex class="text-xs-center">
-            <router-link to="checkout">
-              <v-btn success>Suscribir</v-btn>
-            </router-link>
+            <v-btn success @click="goCheckout">Suscribir</v-btn>
           </v-flex>
         </v-layout>
 
@@ -39,20 +35,10 @@
 <script>
 export default {
   asyncData(context) {
-    return {}
-  },
-  head: {
-    script: [
-      { src: 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js' }
-    ]
+    return {} //
   },
 
   methods:{
-    click: function(){
-      console.log('metodo ejecutado.')
-    },
-    getTypes: function(){
-    },
     goCheckout: function(){
       console.log('go checkout')
       this.$router.push({ path: 'checkout', query: { token: '111111119' }})

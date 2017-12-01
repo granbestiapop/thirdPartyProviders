@@ -89,7 +89,8 @@
         items: [
           { icon: 'apps', title: 'Welcome', to: '/' },
           { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
-           { icon: 'bubble_chart', title: 'Checkout', to: '/checkout' }
+          { icon: 'bubble_chart', title: 'Mercadopuntos', to: '/mercadopuntos' },
+          { icon: 'bubble_chart', title: 'Checkout', to: '/checkout' }
         ],
         miniVariant: false,
         right: true,
