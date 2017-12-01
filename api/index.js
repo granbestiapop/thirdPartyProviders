@@ -33,6 +33,7 @@ app.get('/discount', (req, res)=>{
 })
 
 app.get('/ping', (req, res)=>{
+	console.log(req.headers)
 	res.status(200).send('pong')
 })
 
