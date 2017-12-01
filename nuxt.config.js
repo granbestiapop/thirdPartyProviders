@@ -13,7 +13,11 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
-    ]
+    ],
+    script: [
+      { src: 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js' }, 
+      { src: 'https://rawgit.com/jessepollak/card/master/dist/card.js' }
+    ],
   },
   plugins: ['~/plugins/vuetify.js'],
   css: [

@@ -88,12 +88,13 @@
         fixed: false,
         items: [
           { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
+          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' },
+           { icon: 'bubble_chart', title: 'Checkout', to: '/checkout' }
         ],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Services.js'
       }
     }
   }

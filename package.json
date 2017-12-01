@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "mercadopago": "^0.5.0",
     "nuxt": "^1.0.0-rc11",
     "vuetify": "^0.17.3"

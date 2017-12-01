@@ -1,5 +1,4 @@
 <template>
-<v-app top-toolbar left-fixed-sidebar>
 
 <v-layout>
     <v-flex xs12 sm6 offset-sm3>
@@ -18,15 +17,12 @@
 
 </v-card>
 </v-flex>
-  </v-layout>
-
 
 <div>{{cardInfo}}</div>
 <div>{{data}}</div>
 
+</v-layout>
 
-
-</v-app top-toolbar>
 </template>
 
 <script>
@@ -149,7 +145,7 @@ var card = new Card({
 
 
 
-    Mercadopago.setPublishableKey("APP_USR-f3da3918-1f13-4c82-96cb-ea8ad528a760");
+    Mercadopago.setPublishableKey("TEST-c6bc5f01-87ba-4a25-83dd-12b8bbee080c");
 
 
     function addEvent(el, eventName, handler){
