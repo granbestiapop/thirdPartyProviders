@@ -4,7 +4,7 @@ const app = express()
 const MercadoPago = require('../lib/mercadopago')
 
 
-app.post('/token', async(req, res, next)=>{
+app.post('/token', async(req, res)=>{
 	console.log(req.body)
 	const userId = req.body.userId
 	const token= req.body.cardToken.id
@@ -26,12 +26,14 @@ app.post('/token', async(req, res, next)=>{
 	//console.log(addCardResponse)
 
 	res.status(201).send({status:201, message:"New user created"})
-	return next()
 })
 
-app.get('/discount', (req, res, next)=>{
+app.get('/discount', (req, res)=>{
 	res.status(200).send({code: 'claro_20'})
-	return next()
+})
+
+app.get('/ping', (req, res)=>{
+	res.status(200).send('pong')
 })
 
 module.exports = { path: '/api', handler: app }
