@@ -1,5 +1,4 @@
 const express = require('express')
-const cors = require('cors')
 const app = express()
 
 const MercadoPago = require('../lib/mercadopago')
@@ -20,9 +19,11 @@ app.post('/token', async(req, res, next)=>{
 	const {response, status} = data
 	console.log(response)
 
+	//Realizar pago con 0 amount
+
 	// asocia tarjeta usuario
-	const addCardResponse = await MercadoPago.addCardCustomer(response.id, token)
-	console.log(addCardResponse)
+	//const addCardResponse = await MercadoPago.addCardCustomer(response.id, token)
+	//console.log(addCardResponse)
 
 	res.status(201).send({status:201, message:"New user created"})
 	return next()

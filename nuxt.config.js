@@ -1,3 +1,5 @@
+const env = require('dotenv').config()
+const bodyParser = require('body-parser')
 
 module.exports = {
   /*
@@ -48,5 +50,9 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  serverMiddleware: [
+      bodyParser.json(),
+      '~/api/index.js'
+  ],
 }

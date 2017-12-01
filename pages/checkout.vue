@@ -77,7 +77,7 @@ export default {
             card.setAttribute('value',response.id);
             this.cardInfo.cardToken = response.id
             form.appendChild(card);
-            //this.addCardTokenToServer(response)
+            this.addCardTokenToServer(response)
         }
     },
     payNow: function(){
