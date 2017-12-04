@@ -1,8 +1,6 @@
 const MP = require ("mercadopago");
 const mp = new MP(process.env.MERCADOPAGO_SECRET);
 
-console.log(process.env.MERCADOPAGO_SECRET)
-
 function Pay(data){
 	var doPayment = mp.post ("/v1/payments",
 		{
@@ -14,8 +12,10 @@ function Pay(data){
 			"payer": {
 				"email": data.payer.email
 			},
-			coupon_code: 25907, //'MPCLARO_10_TEST',
-			coupon_amount: 10
+			// Enable this to get coupon
+			//coupon_code: 'MPCLARO_10_TEST',
+			//coupon_amount: 10,
+			capture: true
 		});
 
 	return doPayment.then (
@@ -25,6 +25,24 @@ function Pay(data){
 		function (error){
 			console.log(error);
 		});	
+}
+
+function authorizePay(paymentId){
+	var doCapture = mp.put ("/v1/payments/PAYMENT_ID",
+	{
+		"transaction_amount": 75,
+		"capture": true
+	});
+
+	return doCapture.then (
+	function (payment) {
+		console.log (payment);
+		return payment
+	},
+	function (error){
+		console.log (error);
+		return error
+	});
 }
 
 function GetPayment(id){

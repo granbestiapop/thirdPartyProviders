@@ -103,6 +103,7 @@ export default {
             return response.json()
         }).then(data=>{
             console.log(data)
+            this.$router.push('congrats')
         })
     }
   },
