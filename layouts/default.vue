@@ -53,8 +53,9 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-content>
+    <v-content class="home-background">
       <v-container>
+        <label>test</label>
         <nuxt />
       </v-container>
     </v-content>

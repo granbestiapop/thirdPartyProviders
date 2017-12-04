@@ -2,7 +2,10 @@
 
 <v-layout>
     <v-flex xs12 sm6 offset-sm3>
- <v-card>
+      <div class="text-xs-center">
+        <img src="https://www.clarovideo.com/webclient/sk_core/images/clarovideo-logo-sitio.svg" alt="Vuetify.js" class="mb-5" />
+      </div>
+ <v-card class="transparent-background">
   <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="ma-2">
     <v-text-field label="E-mail" v-model="cardInfo.email"  name="email" id="email" required></v-text-field>
     <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
