@@ -1,7 +1,7 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-      <div class="text-xs-center">
+     <div class="text-xs-center">
         <img src="https://www.clarovideo.com/webclient/sk_core/images/clarovideo-logo-sitio.svg" alt="Vuetify.js" class="mb-5" />
       </div>
       <v-card class="transparent-background">
