@@ -149,7 +149,7 @@ var card = new Card({
 
 
 
-    Mercadopago.setPublishableKey("TEST-c6bc5f01-87ba-4a25-83dd-12b8bbee080c");
+    Mercadopago.setPublishableKey("APP_USR-3ebb3f1e-082c-4f5a-b69d-dd44743c7652");
 
 
     function addEvent(el, eventName, handler){
