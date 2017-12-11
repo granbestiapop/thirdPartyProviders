@@ -13,8 +13,8 @@ function Pay(data){
 				"email": data.payer.email
 			},
 			// Enable this to get coupon
-			//coupon_code: 'MPCLARO_10_TEST',
-			//coupon_amount: 10,
+			coupon_code: 'CLAROV20',
+			coupon_amount: 20,
 			capture: true
 		});
 
