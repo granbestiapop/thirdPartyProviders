@@ -1,3 +1,4 @@
+
 <template>
 
 <v-layout>
@@ -7,7 +8,7 @@
       </div>
  <v-card class="transparent-background">
   <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="ma-2">
-    <v-text-field label="E-mail" v-model="cardInfo.email"  name="email" id="email" required></v-text-field>
+    <v-text-field label="E-mail" v-model="data.email"  name="email" id="email" required></v-text-field>
     <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
     <v-text-field label="CVV" v-model="cardInfo.cvv" data-checkout="securityCode" id="securityCode" required></v-text-field>
     <v-text-field label="Expiration Month" v-model="cardInfo.expirationMonth" data-checkout="cardExpirationMonth" id="cardExpirationMonth" required></v-text-field>
@@ -43,9 +44,11 @@ export default {
             cardToken: ''
         },
         data:{
-            cardToken:{},
-            userId: context.query ? context.query.token : ''           
-        }
+            cardToken: {},
+            userId: context.query ? context.query.token : '',
+            email: ''
+        },
+        public_key: 'APP_USR-bf3fc16b-ce15-4454-bc72-f35ffe630cc6'         
     }
   },
   head: {
@@ -149,7 +152,7 @@ var card = new Card({
 
 
 
-    Mercadopago.setPublishableKey("APP_USR-3ebb3f1e-082c-4f5a-b69d-dd44743c7652");
+    Mercadopago.setPublishableKey(this.public_key); //("APP_USR-3ebb3f1e-082c-4f5a-b69d-dd44743c7652");
 
 
     function addEvent(el, eventName, handler){

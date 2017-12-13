@@ -1,5 +1,6 @@
 const MP = require ("mercadopago");
 const mp = new MP(process.env.MERCADOPAGO_SECRET);
+const MERCADOPAGO_PUBLIC_KEY = process.env.MERCADOPAGO_PUBLIC_KEY
 
 function Pay(data){
 	var doPayment = mp.post ("/v1/payments",
@@ -57,10 +58,10 @@ function GetPayment(id){
 		});	
 }
 
-function createCustomer(userId){
+function createCustomer(email){
 
 	var request = mp.post("/v1/customers", {
-		"email": `test_payer_${userId}@testuser.com`
+		"email": email
 	});
 
 	return request.then (
@@ -107,7 +108,8 @@ module.exports = {
 	getPayment: GetPayment,
 	createCustomer: createCustomer,
 	getCustomer: getCustomer,
-	addCardCustomer: addCardCustomer
+	addCardCustomer: addCardCustomer,
+	MERCADOPAGO_PUBLIC_KEY: MERCADOPAGO_PUBLIC_KEY
 }
 
 
