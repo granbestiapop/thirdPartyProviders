@@ -45,10 +45,10 @@ export default {
         },
         data:{
             cardToken: {},
-            userId: context.query ? context.query.token : '',
+            userId: context.query ? context.query.token : '', 
             email: ''
         },
-        public_key: 'APP_USR-bf3fc16b-ce15-4454-bc72-f35ffe630cc6'         
+        public_key: 'APP_USR-1c82bcde-1727-4db6-a318-820ddaece115'         
     }
   },
   head: {
