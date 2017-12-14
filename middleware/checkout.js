@@ -4,11 +4,13 @@ const path = 'http://test.loyal-api.melifrontends.com/loyal/partners/benefits'
 
 export default function (context) {
 	const loyalToken = context.query.token
+	if(loyaltoken){
+		const uri = `${path}?access_token=${accessToken}&loyal_token=${loyalToken}`
+		console.log(uri)
+		return axios.get(uri).then(response=>{
+	  		console.log(response.data);
+		  	context.loyal = response.data
+		}).catch(err=> console.log(err))
+	}
 
-	const uri = `${path}?access_token=${accessToken}&loyal_token=${loyalToken}`
-	console.log(uri)
-	return axios.get(uri).then(response=>{
-  		console.log(response.data);
-	  	context.loyal = response.data
-	}).catch(err=> console.log(err))
 }
