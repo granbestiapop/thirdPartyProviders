@@ -1,7 +1,7 @@
 <template>
 
-<v-layout>
-    <v-flex xs12 sm6 offset-sm3>
+<v-layout justify-center>
+    <v-flex xs12 sm8 md6>
       <div class="text-xs-center">
         <img src="https://www.clarovideo.com/webclient/sk_core/images/clarovideo-logo-sitio.svg" alt="Vuetify.js" class="mb-5" />
       </div>
@@ -17,12 +17,9 @@
 </form>
 
 <div id="card_draw"></div>
-
+<v-btn color="red darken-3" nuxt to="/">Volver</v-btn>
 </v-card>
 </v-flex>
-
-<div>{{cardInfo}}</div>
-<div>{{data}}</div>
 
 </v-layout>
 
