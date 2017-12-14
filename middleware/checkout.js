@@ -1,6 +1,7 @@
 import axios from 'axios'
 const accessToken = process.env.MERCADOPAGO_SECRET
-const path = 'http://test.loyal-api.melifrontends.com/loyal/partners/benefits'
+const host = 'https://loyal-partners-api.herokuapp.com'
+const path = `${host}/loyal/partners/benefits`
 
 export default function (context) {
 	const loyalToken = context.query.token

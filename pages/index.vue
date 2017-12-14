@@ -25,7 +25,6 @@
 export default {
   middleware: 'checkout',
   asyncData(context) {
-    console.log('context:', context.query)
     return {
         token: context.query.token,
         email: context.loyal ? context.loyal.email : ''
