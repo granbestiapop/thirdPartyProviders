@@ -27,12 +27,15 @@
 </template>
 
 <script>
+
+
 export default {
+  middleware: 'checkout',
   asyncData(context) {
-    console.log(context.query)
+    const data = context.loyal
+    console.log('loyal data:', data)
     return {
         cardInfo:{
-            email: '',
             number: 4075595716483764 ,
             cvv: '',
             expirationMonth: '',
@@ -43,7 +46,7 @@ export default {
         data:{
             cardToken: {},
             userId: context.query ? context.query.token : '', 
-            email: ''
+            email: data ? data.email: ''
         },
         public_key: 'APP_USR-1c82bcde-1727-4db6-a318-820ddaece115'         
     }
