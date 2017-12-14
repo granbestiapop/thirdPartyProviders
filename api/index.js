@@ -6,20 +6,36 @@ const app = express()
 
 const MercadoPago = require('./lib/mercadopago')
 
-
+/**
+ * Steps:
+ * - With card token, create a payment with refund in order to validate credit_card.
+ * - If payment is successfull we can add customer to MercadoPago wallet using createCustomer method.
+ * - When the user_id generated on previous step, add the card to the created user.
+ * - Offline we can cron a job in order to use make payments.
+ */
+/**
+ * @param  {Request} req
+ * @param  {Response} res
+ * @param {String} req.body.cardToken.id - card_token used by MercadoPago
+ * @param {String} req.body.email - Email used to register user
+ */
 app.post('/token', async(req, res)=>{
 
-	const userId = req.body.userId
 	const token= req.body.cardToken.id
 	const email = req.body.email
 	logger.info('[api/index] body:', {user_id: userId, token:token, email:email})
 
-	// traer el usuario de la api de loyalty con el token (data.userId)
-	// devuelve JSON {discount, email, }
-	// TODO
-	//const user = loyalApi.getUserByToken(token)
+	// Create pay with refund
+	const paymentData = {
+		email: email,
+		token: token,
+		amount: 0.1,
+	}
 
-	// asocia a mercadopago el user con el email de respuesta
+	// TODO: create pay and refund
+	//const refundResponse = await MercadoPago.payWithRefund(paymentData)
+	//logger.info(refundResponse)
+
 	try{
 		const data = await MercadoPago.createCustomer(email)
 		const {response, status} = data
@@ -35,9 +51,6 @@ app.post('/token', async(req, res)=>{
 		// catch await exceptions, user could exists
 		logger.error('[api/index]', error)	
 	}
-
-
-	//TODO: Realizar pago con 0 amount
 
 	res.status(201).send({message:'User created'})
 })

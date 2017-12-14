@@ -1,7 +1,7 @@
 {
-  "name": "vue-clie",
+  "name": "IntegrationMock",
   "version": "1.0.0",
-  "description": "Nuxt.js + Vuetify.js project",
+  "description": "Third party providers example using node.js + nuxtjs",
   "author": "granbestiapop <leonardo.clavijo@mercadolibre.com>",
   "private": true,
   "scripts": {

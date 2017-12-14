@@ -33,7 +33,11 @@ export default {
   middleware: 'checkout',
   asyncData(context) {
     const data = context.loyal
-    console.log('loyal data:', data)
+    let email = context.params.email 
+    if(!email){
+        email = context.loyal ? context.loyal.email : ''
+    }
+
     return {
         cardInfo:{
             number: 4075595716483764 ,
@@ -45,8 +49,7 @@ export default {
         },
         data:{
             cardToken: {},
-            userId: context.query ? context.query.token : '', 
-            email: data ? data.email: ''
+            email: email
         },
         public_key: 'APP_USR-1c82bcde-1727-4db6-a318-820ddaece115'         
     }
