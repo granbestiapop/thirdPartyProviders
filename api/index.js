@@ -23,12 +23,12 @@ app.post('/token', async(req, res)=>{
 
 	const token= req.body.cardToken.id
 	const email = req.body.email
-	logger.info('[api/index] body:', {user_id: userId, token:token, email:email})
+	logger.info('[api/index] body:', {token, email})
 
 	// Create pay with refund
 	const paymentData = {
-		email: email,
-		token: token,
+		email,
+		token,
 		amount: 0.1,
 	}
 
