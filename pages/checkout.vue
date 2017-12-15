@@ -1,15 +1,15 @@
 
 <template>
 
-<v-layout justify-center>
+<v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
         <div class="text-xs-center">
-            <img src="https://www.clarovideo.com/webclient/sk_core/images/clarovideo-logo-sitio.svg" alt="Vuetify.js" class="mb-5" />
+            <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
         </div>
         <div class="text-xs-center">¡Tienes {{loyal.products[0].discount}}% de descuento en la suscripción gracias a MercadoLibre!</div>
 
          <v-card class="transparent-background">
-          <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="ma-2">
+          <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="mb-5">
             <v-text-field label="E-mail" v-model="data.email"  name="email" id="email" required></v-text-field>
             <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
             <v-text-field label="CVV" v-model="cardInfo.cvv" data-checkout="securityCode" id="securityCode" required></v-text-field>
@@ -23,7 +23,6 @@
         <v-btn color="red darken-3" nuxt to="/">Volver</v-btn>
         </v-card>
     </v-flex>
-
 </v-layout>
 
 </template>
