@@ -3,56 +3,56 @@
 
 <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-      <div class="text-xs-center">
-        <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
-      </div>
- <v-card class="transparent-background">
+        <div class="text-xs-center">
+            <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
+        </div>
+        <div class="text-xs-center">¡Tienes {{loyal.products[0].discount}}% de descuento en la suscripción gracias a MercadoLibre!</div>
 
-  <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="mb-5">
-    <v-text-field label="E-mail" v-model="data.email"  name="email" id="email" required></v-text-field>
-    <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
-    <v-text-field label="CVV" v-model="cardInfo.cvv" data-checkout="securityCode" id="securityCode" required></v-text-field>
-    <v-text-field label="Expiration Month" v-model="cardInfo.expirationMonth" data-checkout="cardExpirationMonth" id="cardExpirationMonth" required></v-text-field>
-    <v-text-field label="Expiration Year" v-model="cardInfo.expirationYear" data-checkout="cardExpirationYear" id="cardExpirationYear" required></v-text-field>
-    <v-text-field label="Holder name" v-model="cardInfo.holderName" data-checkout="cardholderName" id="cardholderName" required></v-text-field>
-    <v-btn success type="submit">Subscribe</v-btn>
-</form>
+         <v-card class="transparent-background">
+          <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="mb-5">
+            <v-text-field label="E-mail" v-model="data.email"  name="email" id="email" required></v-text-field>
+            <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
+            <v-text-field label="CVV" v-model="cardInfo.cvv" data-checkout="securityCode" id="securityCode" required></v-text-field>
+            <v-text-field label="Expiration Month" v-model="cardInfo.expirationMonth" data-checkout="cardExpirationMonth" id="cardExpirationMonth" required></v-text-field>
+            <v-text-field label="Expiration Year" v-model="cardInfo.expirationYear" data-checkout="cardExpirationYear" id="cardExpirationYear" required></v-text-field>
+            <v-text-field label="Holder name" v-model="cardInfo.holderName" data-checkout="cardholderName" id="cardholderName" required></v-text-field>
+            <v-btn success type="submit">Subscribe</v-btn>
+        </form>
 
-<div id="card_draw"></div>
-<v-btn color="red darken-3" nuxt to="/">Volver</v-btn>
-</v-card>
-</v-flex>
-
+        <div id="card_draw"></div>
+        <v-btn color="red darken-3" nuxt to="/">Volver</v-btn>
+        </v-card>
+    </v-flex>
 </v-layout>
 
 </template>
 
 <script>
-
-
 export default {
   middleware: 'checkout',
   asyncData(context) {
-    const data = context.loyal
-    let email = context.params.email 
+    const data = context.loyal || context.params.loyal
+    let email = data.email 
+
     if(!email){
         email = context.loyal ? context.loyal.email : ''
     }
 
     return {
+        loyal: data,
         cardInfo:{
             number: 4075595716483764 ,
             cvv: '',
             expirationMonth: '',
             expirationYear: '',
-            holderName: '',
+            holderName: data.first_name + " " + data.last_name,
             cardToken: ''
         },
         data:{
             cardToken: {},
             email: email
         },
-        public_key: 'APP_USR-1c82bcde-1727-4db6-a318-820ddaece115'         
+        public_key: 'APP_USR-1db144da-5681-4a13-be6a-dc61989b6be6'         
     }
   },
   head: {
