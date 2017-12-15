@@ -51,7 +51,7 @@ export default {
             cardToken: {},
             email: email
         },
-        public_key: 'APP_USR-1c82bcde-1727-4db6-a318-820ddaece115'         
+        public_key: 'APP_USR-1db144da-5681-4a13-be6a-dc61989b6be6'         
     }
   },
   head: {
