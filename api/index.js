@@ -1,39 +1,64 @@
 const express = require('express')
+const fs = require('fs')
+var logger = require('pino')()
+
 const app = express()
 
-const MercadoPago = require('../lib/mercadopago')
+const MercadoPago = require('./lib/mercadopago')
 
-
+/**
+ * Steps:
+ * - With card token, create a payment with refund in order to validate credit_card.
+ * - If payment is successfull we can add customer to MercadoPago wallet using createCustomer method.
+ * - When the user_id generated on previous step, add the card to the created user.
+ * - Offline we can cron a job in order to use make payments.
+ */
+/**
+ * @param  {Request} req
+ * @param  {Response} res
+ * @param {String} req.body.cardToken.id - card_token used by MercadoPago
+ * @param {String} req.body.email - Email used to register user
+ */
 app.post('/token', async(req, res)=>{
-	console.log(req.body)
-	const userId = req.body.userId
+
 	const token= req.body.cardToken.id
-	console.log(userId, token)
+	const email = req.body.email
+	logger.info('[api/index] body:', {token, email})
 
-	// traer el usuario de la api de loyalty con el token (data.userId)
-	// devuelve JSON {discount, email, }
-	// TODO
+	// Create pay with refund
+	const paymentData = {
+		email,
+		token,
+		amount: 0.1,
+	}
 
-	// asocia a mercadopago el user con el email de respuesta
-	const data = await MercadoPago.createCustomer(userId)
-	const {response, status} = data
-	console.log(response)
+	// TODO: create pay and refund
+	//const refundResponse = await MercadoPago.payWithRefund(paymentData)
+	//logger.info(refundResponse)
 
-	//Realizar pago con 0 amount
+	try{
+		const data = await MercadoPago.createCustomer(email)
+		const {response, status} = data
+		logger.info('[api/index] createCustomer response:', response)
 
-	// asocia tarjeta usuario
-	//const addCardResponse = await MercadoPago.addCardCustomer(response.id, token)
-	//console.log(addCardResponse)
+		// asocia tarjeta usuario
+		if(response){
+			const addCardResponse = await MercadoPago.addCardCustomer(response.id, token)
+			logger.info('[api/index] addCardResponse', addCardResponse)	
+		}
 
-	res.status(201).send({status:201, message:"New user created"})
-})
+	}catch(error){
+		// catch await exceptions, user could exists
+		logger.error('[api/index]', error)	
+	}
 
-app.get('/discount', (req, res)=>{
-	res.status(200).send({code: 'claro_20'})
+	res.status(201).send({message:'User created'})
 })
 
 app.get('/ping', (req, res)=>{
+	log(req.headers)
 	res.status(200).send('pong')
 })
+
 
 module.exports = { path: '/api', handler: app }

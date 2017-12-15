@@ -1,3 +1,4 @@
+
 <template>
 
 <v-layout column justify-center align-center>
@@ -6,8 +7,9 @@
         <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
       </div>
  <v-card class="transparent-background">
+
   <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="mb-5">
-    <v-text-field label="E-mail" v-model="cardInfo.email"  name="email" id="email" required></v-text-field>
+    <v-text-field label="E-mail" v-model="data.email"  name="email" id="email" required></v-text-field>
     <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
     <v-text-field label="CVV" v-model="cardInfo.cvv" data-checkout="securityCode" id="securityCode" required></v-text-field>
     <v-text-field label="Expiration Month" v-model="cardInfo.expirationMonth" data-checkout="cardExpirationMonth" id="cardExpirationMonth" required></v-text-field>
@@ -26,12 +28,19 @@
 </template>
 
 <script>
+
+
 export default {
+  middleware: 'checkout',
   asyncData(context) {
-    console.log(context.query)
+    const data = context.loyal
+    let email = context.params.email 
+    if(!email){
+        email = context.loyal ? context.loyal.email : ''
+    }
+
     return {
         cardInfo:{
-            email: '',
             number: 4075595716483764 ,
             cvv: '',
             expirationMonth: '',
@@ -40,9 +49,10 @@ export default {
             cardToken: ''
         },
         data:{
-            cardToken:{},
-            userId: context.query ? context.query.token : ''           
-        }
+            cardToken: {},
+            email: email
+        },
+        public_key: 'APP_USR-1c82bcde-1727-4db6-a318-820ddaece115'         
     }
   },
   head: {
@@ -103,6 +113,7 @@ export default {
             return response.json()
         }).then(data=>{
             console.log(data)
+            this.$router.push('congrats')
         })
     }
   },
@@ -145,7 +156,7 @@ var card = new Card({
 
 
 
-    Mercadopago.setPublishableKey("TEST-c6bc5f01-87ba-4a25-83dd-12b8bbee080c");
+    Mercadopago.setPublishableKey(this.public_key); //("APP_USR-3ebb3f1e-082c-4f5a-b69d-dd44743c7652");
 
 
     function addEvent(el, eventName, handler){

@@ -1,20 +1,23 @@
 {
-  "name": "vue-clie",
+  "name": "IntegrationMock",
   "version": "1.0.0",
-  "description": "Nuxt.js + Vuetify.js project",
+  "description": "Third party providers example using node.js + nuxtjs",
   "author": "granbestiapop <leonardo.clavijo@mercadolibre.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "mercadopago": "^0.5.0",
     "nuxt": "^1.0.0-rc11",
+    "pino": "^4.10.2",
     "vuetify": "^0.17.3"
   },
   "devDependencies": {
@@ -31,6 +34,6 @@
     "stylus-loader": "^3.0.1"
   },
   "engines": {
-    "node": "8.9.1"
+    "node": "8.9.3"
   }
 }

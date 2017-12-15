@@ -1,8 +1,6 @@
 <template>
   <div>
-    <router-link to="checkout">
-      <button>Ir a Mercadolibre</button>
-    </router-link>
+    <p> Felicitaciones disfruta clarovideo gracias a MercadoPuntos.</p>
   </div>
 
 
@@ -12,19 +10,6 @@
 export default {
   asyncData(context) {
     return {}
-  },
-  head: {
-    script: [
-      { src: 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js' }
-    ]
-  },
-
-  methods:{
-    click: function(){
-      console.log('metodo ejecutado.')
-    },
-    getTypes: function(){
-    }
   },
   mounted(){
   }

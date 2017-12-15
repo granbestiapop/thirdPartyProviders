@@ -14,9 +14,21 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn  color="Yellow darken-3" nuxt to="/checkout">Suscribirme!</v-btn>
+          <v-btn  color="Yellow darken-3" nuxt :to="{ name: 'checkout', params: { email: email, token:token }}">Suscribirme!</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+export default {
+  middleware: 'checkout',
+  asyncData(context) {
+    return {
+        token: context.query.token,
+        email: context.loyal ? context.loyal.email : ''
+    }
+  }
+}
+</script>
