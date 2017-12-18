@@ -1,6 +1,6 @@
 import axios from 'axios'
 const accessToken = process.env.MERCADOPAGO_SECRET
-const host = 'https://loyal-partners-api.herokuapp.com'
+const host = 'https://api.mercadolibre.com'
 const path = `${host}/loyal/partners/benefits`
 
 export default function (context) {
