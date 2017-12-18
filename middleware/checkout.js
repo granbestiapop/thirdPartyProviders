@@ -13,5 +13,4 @@ export default function (context) {
 		  	context.loyal = response.data
 		}).catch(err=> console.log(err))
 	}
-
 }

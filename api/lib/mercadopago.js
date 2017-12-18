@@ -25,12 +25,16 @@ function Pay(data){
 		body.coupon_code = data.couponCode //'CLAROV20',
 		body.coupon_amount = data.couponAmount //20,
 	}
+	if(data.customer_id){
+		body.payer.id = data.customer_id
+	}
 
 	var doPayment = mp.post ("/v1/payments", body);
 
 	return doPayment.then (
 		function (payment) {
 			console.log(payment);
+			return payment
 		},
 		function (error){
 			console.log(error);
@@ -130,6 +134,35 @@ function getCustomer(id){
 		});	
 }
 
+function getCustomers(){
+	const request = mp.get("/v1/customers/search");
+
+	return request.then (
+		function (data) {
+			return data
+		},
+		function (error){
+			console.log(error);
+		});	
+}
+
+/**
+ * @param  {Object} data
+ * @param {String} data.card_id - User card_id
+ * @return {[type]}
+ */
+function createToken(data){
+	const request = mp.post(`/v1/card_tokens?pub_key=${MERCADOPAGO_PUBLIC_KEY}`, data);
+
+	return request.then (
+		function (data) {
+			return data
+		},
+		function (error){
+			console.log(error);
+		});	
+}
+
 module.exports = {
 	Pay: Pay,
 	refund: refund,
@@ -137,6 +170,8 @@ module.exports = {
 	getPayment: GetPayment,
 	createCustomer: createCustomer,
 	getCustomer: getCustomer,
+	getCustomers: getCustomers,
 	addCardCustomer: addCardCustomer,
+	createToken: createToken,
 	MERCADOPAGO_PUBLIC_KEY: MERCADOPAGO_PUBLIC_KEY
 }

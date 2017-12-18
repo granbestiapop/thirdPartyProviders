@@ -55,10 +55,22 @@ app.post('/token', async(req, res)=>{
 	res.status(201).send({message:'User created'})
 })
 
-app.post('/payment', async(req, res)=>{
-	const body = req.body
+app.post('/payments', async(req, res)=>{
+	const data = req.body
+	const pay = await MercadoPago.Pay(data)
+	res.status(200).send(pay)
+})
 
-	res.status(200).send(body)
+app.post('/card_tokens', async(req, res)=>{
+	const data = req.body
+	const token = await MercadoPago.createToken(data)
+	res.status(200).send(token)
+})
+
+app.get('/customers', async(req, res)=>{
+	const token = req.body.token
+	const customers = await MercadoPago.getCustomers()
+	res.status(200).send(customers)
 })
 
 app.get('/ping', (req, res)=>{
