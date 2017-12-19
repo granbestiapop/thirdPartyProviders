@@ -32,10 +32,10 @@ export default {
   middleware: 'checkout',
   asyncData(context) {
     const data = context.loyal || context.params.loyal
-    let email = data.email 
+    let email = data.user.email 
 
     if(!email){
-        email = context.loyal ? context.loyal.email : ''
+        email = context.loyal ? context.loyal.user.email : ''
     }
 
     return {
@@ -45,7 +45,7 @@ export default {
             cvv: '',
             expirationMonth: '',
             expirationYear: '',
-            holderName: data.first_name + " " + data.last_name,
+            holderName: data.user.first_name + " " + data.user.last_name,
             cardToken: ''
         },
         data:{
