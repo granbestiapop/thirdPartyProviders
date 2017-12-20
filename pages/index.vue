@@ -32,7 +32,6 @@ export default {
         email: context.loyal ? context.loyal.email : '',
         origin: origin
     }
-    console.log(data)
     return data
   },
 
@@ -40,7 +39,7 @@ export default {
     goCheckout: function(){
         console.log('GO TO CHECKOUT ', this.origin)
         if(this.origin){
-          this.$router.push('checkout')
+          this.$router.push({ name: 'checkout', params: { loyal: this.loyal }})
         }
     }
   },
