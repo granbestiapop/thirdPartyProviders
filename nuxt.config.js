@@ -1,6 +1,6 @@
 const env = require('dotenv').config()
 const bodyParser = require('body-parser')
-
+const cors = require('cors')
 module.exports = {
   /*
   ** Headers of the page
@@ -52,6 +52,7 @@ module.exports = {
     }
   },
   serverMiddleware: [
+      cors(),
       bodyParser.json(),
       '~/api/index.js'
   ],
