@@ -25,13 +25,27 @@
 export default {
   middleware: 'checkout',
   asyncData(context) {
+    const origin = context.origin === 'partner'
     const data = {
         loyal: context.loyal,
         token: context.query.token,
-        email: context.loyal ? context.loyal.email : ''
+        email: context.loyal ? context.loyal.email : '',
+        origin: origin
     }
     console.log(data)
     return data
+  },
+
+  methods:{
+    goCheckout: function(){
+        console.log('GO TO CHECKOUT ', this.origin)
+        if(this.origin){
+          this.$router.push('checkout')
+        }
+    }
+  },
+  mounted(){
+    this.goCheckout()
   }
 }
 </script>

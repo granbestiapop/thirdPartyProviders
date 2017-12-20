@@ -5,6 +5,9 @@ const path = `${host}/loyal/partners/benefits`
 
 export default function (context) {
 	const loyalToken = context.query.token
+	const origin = context.query.origin
+	context.origin = origin
+	
 	if(loyalToken){
 		const uri = `${path}?access_token=${accessToken}&loyal_token=${loyalToken}`
 		console.log(uri)
