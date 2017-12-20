@@ -14,7 +14,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn  color="Yellow darken-3" nuxt :to="{ name: 'checkout', params: { email, token, loyal }}">Suscribirme!</v-btn>
+          <v-btn  color="Yellow darken-3" href="https://www.mercadolibre.com.mx/mercadopuntos/claro?origin=partner">Suscribirme!</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
