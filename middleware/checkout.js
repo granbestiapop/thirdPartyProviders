@@ -5,9 +5,13 @@ const path = `${host}/loyal/partners/benefits`
 
 export default function (context) {
 	const loyalToken = context.query.token
-	const origin = context.query.origin
-	context.origin = origin
+	const origin = context.query.origin === 'partner'
 	
+	if(origin){
+		const path = loyalToken ? `/checkout?token=${loyalToken}` : '/checkout'
+		return context.redirect(path)
+	}
+
 	if(loyalToken){
 		const uri = `${path}?access_token=${accessToken}&loyal_token=${loyalToken}`
 		console.log(uri)
