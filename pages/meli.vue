@@ -23,14 +23,8 @@
 
 <script>
 export default {
-  middleware: 'checkout',
   asyncData(context) {
-    const data = {
-        loyal: context.loyal,
-        token: context.query.token,
-        email: context.loyal ? context.loyal.email : ''
-    }
-    return data
+    return {}
   },
 
   methods:{
