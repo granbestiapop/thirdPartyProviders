@@ -6,7 +6,7 @@
         <div class="text-xs-center">
             <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
         </div>
-        <div class="text-xs-center">¡Tienes {{loyal.products[0].discount}}% de descuento en la suscripción gracias a MercadoLibre!</div>
+        <div class="text-xs-center" v-if="loyal && loyal.products[0]">¡Tienes {{loyal.products[0].discount}}% de descuento en la suscripción gracias a MercadoLibre!</div>
 
          <v-card class="transparent-background">
           <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="mb-5">
@@ -32,11 +32,13 @@ export default {
   middleware: 'checkout',
   asyncData(context) {
     const data = context.loyal || context.params.loyal
-    let email = data.user.email 
+    let email = (data && data.user) ? data.user.email : ''
 
     if(!email){
         email = context.loyal ? context.loyal.user.email : ''
     }
+    const name = (data && data.user) ? data.user.first_name : ''
+    const lastName = (data && data.user) ? data.user.last_name: ''
 
     return {
         loyal: data,
@@ -45,7 +47,7 @@ export default {
             cvv: '',
             expirationMonth: '',
             expirationYear: '',
-            holderName: data.user.first_name + " " + data.user.last_name,
+            holderName: name + " " + lastName,
             cardToken: ''
         },
         data:{
