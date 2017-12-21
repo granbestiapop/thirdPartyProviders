@@ -1,4 +1,4 @@
-# Third party integrations
+# Third Party Integration
 
 ```  
    npm install
@@ -11,4 +11,5 @@ Put MERCADOPAGO_SECRET credentials on .env file and then:
    git update-index --assume-unchanged .env
 ```
 
-http://localhost:3000/checkout?token=111111111 
+GO: http://localhost:3000/
+
