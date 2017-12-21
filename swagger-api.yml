@@ -16,7 +16,7 @@ tags:
 schemes:
 - "https"
 paths:
-  /benefits:
+  /partners/benefits:
     get:
       tags:
       - "benefits"
