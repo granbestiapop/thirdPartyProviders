@@ -36,6 +36,11 @@ paths:
         description: "Loyalty user token"
         required: true
         type: "string"
+      - name: "pick"
+        in: "query"
+        description: "Get attributes from response"
+        type: "string"
+        enum: ["products", "user,products"]
 
       responses:
         200:
@@ -68,6 +73,8 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ProductResponse'
+      user:
+        $ref: '#/definitions/UserResponse'
 
   ProductResponse:
     type: object
@@ -78,8 +85,14 @@ definitions:
         type: string
       product_name:
         type: string
+        
+  UserResponse:
+    type: object
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
       
-
-externalDocs:
-  description: "Find out more about Swagger"
-  url: "http://swagger.io"
