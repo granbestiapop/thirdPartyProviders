@@ -1,0 +1,85 @@
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "MELI Loyalty"
+  contact:
+    email: "loyalty-dev@mercadolibre.com"
+host: "api.mercadolibre.com"
+basePath: "/loyal"
+tags:
+- name: "benefits"
+  description: "payment endpoint"
+  externalDocs:
+    description: "Find out more"
+    url: "https://mercadolibre.com"
+schemes:
+- "https"
+paths:
+  /benefits:
+    get:
+      tags:
+      - "benefits"
+      summary: "Get loyalty benefits"
+      description: "Get loyalty benefits for partner"
+      operationId: "getBenefits"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "access_token"
+        in: "query"
+        description: "Mercadopago access_token"
+        required: true
+        type: "string"
+      - name: "loyal_token"
+        in: "query"
+        description: "Loyalty user token"
+        required: true
+        type: "string"
+
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: '#/definitions/LoyalResponse'
+        400:
+          description: "Invalid parameters"
+        500:
+          description: "Internal server error"
+        
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+    
+definitions:
+  LoyalResponse:
+    type: "object"
+    properties:
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/ProductResponse'
+
+  ProductResponse:
+    type: object
+    properties:
+      coupon_code:
+        type: string
+      discount:
+        type: string
+      product_name:
+        type: string
+      
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

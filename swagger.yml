@@ -19,45 +19,9 @@ tags:
     description: "Find out more"
     url: "https://mercadolibre.com"
 schemes:
+- "https"
 - "http"
-paths:
-  /benefits:
-    get:
-      tags:
-      - "payments"
-      summary: "creates payment"
-      description: "Creates payment"
-      operationId: "getBenefits"
-      produces:
-      - "application/json"
-      parameters:
-        - in: body
-          name: body
-          description: Payment to create.
-          schema:
-            type: object
-            required:
-              - email
-              - customer_id
-              - token
-              - amount
-            properties:
-              email:
-                type: string
-              customer_id:
-                type: string
-              token:
-                type: string
-              amount:
-                type: number
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: '#/definitions/PaymentResponse'
-        404:
-          description: "User not found"
-        
+paths:  
   /payments:
     post:
       tags:
