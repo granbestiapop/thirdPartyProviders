@@ -49,6 +49,10 @@ paths:
             $ref: '#/definitions/LoyalResponse'
         400:
           description: "Invalid parameters"
+        401:
+          description: "Invalid credentials access_token"
+        404:
+          description: "Token not found"
         500:
           description: "Internal server error"
         
