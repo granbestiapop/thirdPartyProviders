@@ -42,7 +42,8 @@ export default {
       const data = {
         amount: this.amount,
         token: this.token,
-        email: this.user.email
+        email: this.user.email,
+        customer_id: this.user.id
       }
       console.log(data)
       axios.post('https://mercadopago-loyal.herokuapp.com/api/payments', data).then(response => {

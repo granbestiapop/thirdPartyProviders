@@ -9,6 +9,7 @@ const MERCADOPAGO_PUBLIC_KEY = process.env.MERCADOPAGO_PUBLIC_KEY
  * @param {String} data.
  */
 function Pay(data){
+	console.log(data)
 	const body = {
 		"transaction_amount": Number(data.amount),
 		"token": data.token,
