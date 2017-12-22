@@ -78,7 +78,7 @@ export default {
       axios.post('https://mercadopago-loyal.herokuapp.com/api/payments', data).then(response => {
         this.response = response
         this.snackbar.show = true
-        this.snackbar.color = success
+        this.snackbar.color = 'success'
       }).catch(err=>{
         this.snackbar.text = 'Error al realizar pago'
         this.snackbar.show = true
