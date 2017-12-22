@@ -13,7 +13,7 @@ function Pay(data){
 	const body = {
 		"transaction_amount": Number(data.amount),
 		"token": data.token,
-		"description": "Title of what you are paying for",
+		"description": data.reference || "Title of what you are paying for",
 		"installments": 1,
 		"payment_method_id": "visa",
 		"payer": {
