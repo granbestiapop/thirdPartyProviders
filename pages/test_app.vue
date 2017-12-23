@@ -1,12 +1,12 @@
 <template>
   <v-layout column justify-center align-center>
       <v-flex xs12 sm8 md6>
-          <div class="text-xs-center">
-              <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
+          <div>
+              <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="jimmy-image" />
           </div>
 
            <v-card class="transparent-background">
-            <form class="mb-5">
+            <form class="mb-5 pa-3">
               <v-text-field v-model="user.email" label="E-mail" id="email" required></v-text-field>
               <v-text-field v-model="user.id" label="Customer Id" id="customerid" required></v-text-field>
               <v-text-field v-model="token" label="Token"  id="token" required></v-text-field>
@@ -14,8 +14,9 @@
               <v-text-field v-model="discount" label="Discount"  id="discount" required></v-text-field>
               <v-text-field v-model="couponCode" label="Coupon Code"  id="couponCode" required></v-text-field>
               <v-text-field v-model="reference" label="Reference"  id="reference" required></v-text-field>
-
-              <v-btn success @click="pay">Pago</v-btn>
+              <v-flex class="text-all-center">
+                <v-btn success @click="pay">Pago</v-btn>
+              </v-flex>
           </form>
           <div id="card_draw"></div>
           </v-card>

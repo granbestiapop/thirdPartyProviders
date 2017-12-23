@@ -3,24 +3,28 @@
 
 <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
-        <div class="text-xs-center">
-            <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
+        <div>
+            <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="jimmy-image" />
         </div>
-        <div class="text-xs-center" v-if="loyal && loyal.products[0]">¡Tienes {{loyal.products[0].discount}}% de descuento en la suscripción gracias a MercadoLibre!</div>
+        <div class="text-xs-center pa-3" v-if="loyal && loyal.products[0]">¡Tienes {{loyal.products[0].discount}}% de descuento en la suscripción gracias a MercadoLibre!</div>
 
          <v-card class="transparent-background">
-          <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="mb-5">
+          <form action="" method="post" id="pay" name="pay" v-on:submit.prevent="payNow" class="pa-3">
             <v-text-field label="E-mail" v-model="data.email"  name="email" id="email" required></v-text-field>
             <v-text-field label="Card number" v-model="cardInfo.number"  data-checkout="cardNumber" id="cardNumber" required></v-text-field>
             <v-text-field label="CVV" v-model="cardInfo.cvv" data-checkout="securityCode" id="securityCode" required></v-text-field>
             <v-text-field label="Expiration Month" v-model="cardInfo.expirationMonth" data-checkout="cardExpirationMonth" id="cardExpirationMonth" required></v-text-field>
             <v-text-field label="Expiration Year" v-model="cardInfo.expirationYear" data-checkout="cardExpirationYear" id="cardExpirationYear" required></v-text-field>
             <v-text-field label="Holder name" v-model="cardInfo.holderName" data-checkout="cardholderName" id="cardholderName" required></v-text-field>
-            <v-btn success type="submit">Subscribe</v-btn>
+            <v-layout row justify-space-between > 
+                <v-btn success type="submit">Subscribe</v-btn>
+                <v-btn color="red darken-3" nuxt to="/">Go Back</v-btn>
+            </v-layout>
+            
         </form>
 
         <div id="card_draw"></div>
-        <v-btn color="red darken-3" nuxt to="/">Volver</v-btn>
+        
         </v-card>
     </v-flex>
 </v-layout>

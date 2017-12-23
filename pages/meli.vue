@@ -2,7 +2,7 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
      <div class="text-xs-center">
-        <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5" />
+        <img src="../assets/img/JimmyStreamingLogo.png" alt="Vuetify.js" class="mb-5 jimmy-image" />
       </div>
       <v-card class="transparent-background">
         <v-card-title class="headline">Bienvenidos a Jimmy Streaming</v-card-title>
