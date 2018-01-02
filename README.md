@@ -13,3 +13,13 @@ Put MERCADOPAGO_SECRET credentials on .env file and then:
 
 GO: http://localhost:3000/
 
+# Docker
+Update MERCADOPAGO_SECRET token on Dockerfile.
+
+```
+   docker build . -t thirdpartyapp
+   docker run -p3000:3000 --rm -it thirdpartyapp
+
+``` 
+
+http://localhost:3000/
