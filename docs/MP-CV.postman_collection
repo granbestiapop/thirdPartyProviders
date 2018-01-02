@@ -1,0 +1,101 @@
+{
+	"id": "467e09c3-5029-d082-5bc3-98e516c12d75",
+	"name": "MP-CV",
+	"description": "",
+	"order": [
+		"15b693db-2f0f-4f26-3b22-d222bb5b892f"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1514907213618,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "15b693db-2f0f-4f26-3b22-d222bb5b892f",
+			"headers": "",
+			"headerData": [],
+			"url": "https://api.mercadolibre.com/loyal/partners/benefits?access_token=${MP_ACCESS_TOKEN}&loyal_token=au6Sgk-rlOVOD2acIrbOQ5HBC1-MrLrs8UiehHDCZ_U",
+			"queryParams": [
+				{
+					"key": "access_token",
+					"value": "${MP_ACCESS_TOKEN}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "loyal_token",
+					"value": "au6Sgk-rlOVOD2acIrbOQ5HBC1-MrLrs8UiehHDCZ_U",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1514907293074,
+			"name": "GET BENEFITS",
+			"description": "",
+			"collectionId": "467e09c3-5029-d082-5bc3-98e516c12d75",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"time": 0,
+					"headers": [],
+					"cookies": [],
+					"mime": "",
+					"text": "",
+					"language": "",
+					"rawDataType": "",
+					"previewType": "parsed",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"name": "Example",
+					"id": "146a2702-8d3c-7c22-a8d6-c0b5b3c7017d",
+					"request": {
+						"url": "https://api.mercadolibre.com/loyal/partners/benefits?access_token=${MP_ACCESS_TOKEN}&loyal_token=au6Sgk-rlOVOD2acIrbOQ5HBC1-MrLrs8UiehHDCZ_U",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "access_token",
+								"value": "${MP_ACCESS_TOKEN}",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "loyal_token",
+								"value": "au6Sgk-rlOVOD2acIrbOQ5HBC1-MrLrs8UiehHDCZ_U",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [],
+						"headers": "",
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			]
+		}
+	]
+}
