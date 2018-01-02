@@ -14,7 +14,7 @@
         </v-card-text>
         <v-flex class="pa-3 text-all-center">
           <v-spacer></v-spacer>
-          <v-btn color="Yellow darken-3" nuxt :to="{ name: 'checkout', params: { email, token, loyal }}">Suscribirme!</v-btn>
+          <v-btn color="Yellow darken-3" nuxt :to="{ name: 'checkout', params: { email, token, loyal, publicKey }}">Suscribirme!</v-btn>
         </v-flex>
       </v-card>
     </v-flex>
@@ -28,7 +28,8 @@ export default {
     const data = {
         loyal: context.loyal,
         token: context.query.token,
-        email: context.loyal ? context.loyal.email : ''
+        email: context.loyal ? context.loyal.email : '',
+        publicKey: context.publicKey
     }
     return data
   },

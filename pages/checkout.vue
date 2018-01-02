@@ -36,7 +36,7 @@ export default {
   middleware: 'checkout',
   asyncData(context) {
     const data = context.loyal || context.params.loyal
-    const publicKey = context.publicKey
+    const publicKey = context.params.publicKey || context.publicKey
 
     let email = (data && data.user) ? data.user.email : ''
 
