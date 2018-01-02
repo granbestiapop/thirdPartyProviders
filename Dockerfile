@@ -5,8 +5,9 @@ COPY package.json /app/package.json
 RUN npm install
 COPY . /app
 
-## Add mercadopago token here
+## Add mercadopago public and secret
 # MERCADOPAGO_SECRET=
+# MERCADOPAGO_PUBLIC_KEY =
 
 ENV HOST 0.0.0.0
 EXPOSE 3000

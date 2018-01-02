@@ -36,6 +36,8 @@ export default {
   middleware: 'checkout',
   asyncData(context) {
     const data = context.loyal || context.params.loyal
+    const publicKey = context.publicKey
+
     let email = (data && data.user) ? data.user.email : ''
 
     if(!email){
@@ -58,7 +60,7 @@ export default {
             cardToken: {},
             email: email
         },
-        public_key: 'APP_USR-1db144da-5681-4a13-be6a-dc61989b6be6'         
+        public_key: publicKey         
     }
   },
   head: {
@@ -162,7 +164,7 @@ var card = new Card({
 
 
 
-    Mercadopago.setPublishableKey(this.public_key); //("APP_USR-3ebb3f1e-082c-4f5a-b69d-dd44743c7652");
+    Mercadopago.setPublishableKey(this.public_key);
 
 
     function addEvent(el, eventName, handler){
