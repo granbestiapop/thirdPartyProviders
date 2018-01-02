@@ -23,3 +23,6 @@ Update MERCADOPAGO_SECRET and MERCADOPAGO_PUBLIC_KEY token on Dockerfile.
 ``` 
 
 http://localhost:3000/
+
+# Usage
+![Example](/docs/example-app.gif)
